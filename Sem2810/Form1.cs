@@ -13,12 +13,14 @@ namespace Sem2810
         {
             InitializeComponent();
         }
+        //  напюанрйю ббндю жхтп
         private void fill_input(string str)
         {
             input = input.Replace(" ", "").Replace(".", ",");
             textBox_input.Text = $"{input}{str}";
         }
-
+        
+        //  напюанрйю ббндю люр гмюйнб
         private void fill_input_sign(string sign)
         {
             input = input.Replace(" ", "").Replace(".", ",");
@@ -49,6 +51,8 @@ namespace Sem2810
             }
             textBox_input.Text = $"{new_input}";
         }
+        
+        // щкелемрш сопюбкемхъ
         private void button_add_Click(object sender, EventArgs e)
         {
             input = Convert.ToString(textBox_input.Text);
@@ -144,6 +148,8 @@ namespace Sem2810
             input = Convert.ToString(textBox_input.Text);
             fill_input(",");
         }
+        //  ймнойю пюбемярбю 
+        //  пюгахбюер ярпнйс мю люр яхлбнкш х гмюйх
         private void button_equal_Click(object sender, EventArgs e)
         {
             input = Convert.ToString(textBox_input.Text).Replace(" ", "").Replace(".", ",");
@@ -178,6 +184,8 @@ namespace Sem2810
                 Calculate(str_task);
             }
         }
+        
+        //  люрелюрхвеяйхе ноепюжхх
         public double add(double a ,double b)       //  якнфемхе
         {
             return a + b;
@@ -274,10 +282,11 @@ namespace Sem2810
 
             return true;
         }
-        public void Calculate(List<string> str_task)
+        public void Calculate(List<string> str_task)    //  ондяв╗р
         {
             if (!Exceptions(str_task)) { return; }
 
+            //  оепбшл декнл мюундъряъ вхякю я тюйрнпхюкнл х яреоемэч
             int i = 0;
             while (str_task.IndexOf("^") != -1 | str_task.IndexOf("!") != -1)
             {
@@ -297,6 +306,8 @@ namespace Sem2810
                 }
                 i++;
             }
+
+            //  мю брнпнл леяре опнхгбндхл ноепюжхх слмнфемхъ х декемхъ
             i = 0;
             while (str_task.IndexOf("*") != -1 | str_task.IndexOf("/") != -1)
             {
@@ -318,6 +329,7 @@ namespace Sem2810
                 i++;
             }
 
+            //  мю рперэел леяре опнхгбндхл ноепюжхх якнфемхъ х бшвхрюмхъ
             i = 0;
             while (str_task.IndexOf("+") != -1 | str_task.IndexOf("-") != -1)
             {
@@ -340,6 +352,7 @@ namespace Sem2810
                 i++;
             }
 
+            //  мю верб╗прнл леяре онахрнбше ноепюжхх
             i = 0;
             while (str_task.IndexOf("&") != -1 | str_task.IndexOf("|") != -1)
             {
